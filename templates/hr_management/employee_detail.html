@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Employee Detail{% endblock %}
+
+{% block content %}
+<h2>Employee Detail</h2>
+<p>Username: {{ employee.user.username }}</p>
+<p>Date of Birth: {{ employee.date_of_birth }}</p>
+<p>Address: {{ employee.address }}</p>
+<p>Contact Number: {{ employee.contact_number }}</p>
+<p>Position: {{ employee.position }}</p>
+<p>Salary: {{ employee.salary }}</p>
+{% endblock %}

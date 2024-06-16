@@ -1,0 +1,37 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Healthcare ERP{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
+</head>
+
+<body>
+    <header class="bg-blue-500 text-white p-4">
+        <h1>Welcome to the Healthcare ERP System</h1>
+    </header>
+    <nav class="bg-gray-100 p-4">
+        <ul class="flex space-x-4">
+            <li><a href="{% url 'patient_list' %}" class="text-blue-500 hover:underline">Patients</a></li>
+            <li><a href="{% url 'medical_record_list' %}" class="text-blue-500 hover:underline">Medical Records</a></li>
+            <li><a href="{% url 'appointment_list' %}" class="text-blue-500 hover:underline">Appointments</a></li>
+            <li><a href="{% url 'invoice_list' %}" class="text-blue-500 hover:underline">Billing</a></li>
+            <li><a href="{% url 'product_list' %}" class="text-blue-500 hover:underline">Inventory</a></li>
+            <li><a href="{% url 'employee_list' %}" class="text-blue-500 hover:underline">HR Management</a></li>
+        </ul>
+    </nav>
+    <main class="p-4">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="bg-gray-200 text-center p-4">
+        <p>&copy; 2024 Healthcare ERP System</p>
+    </footer>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Medical Record Detail{% endblock %}
+
+{% block content %}
+<h2>Medical Record Detail</h2>
+<p>Patient: {{ record.patient.user.username }}</p>
+<p>Date: {{ record.date }}</p>
+<p>Description: {{ record.description }}</p>
+<p>Prescription: {{ record.prescription }}</p>
+{% endblock %}

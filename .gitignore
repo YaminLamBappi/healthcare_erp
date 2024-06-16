@@ -1,0 +1,14 @@
+# Ignore virtual environment
+venv/
+env/
+
+# Ignore IDE files
+.vscode/
+*.pyc
+
+# Ignore Django migration files
+**/migrations/
+db.sqlite3
+
+# Ignore local settings (if any)
+healthcare_erp/local_settings.py
