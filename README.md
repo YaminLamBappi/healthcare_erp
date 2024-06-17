@@ -25,9 +25,10 @@ Follow these steps to set up the project locally:
     Create and activate a virtual environment (optional but recommended):
 
     bash
+   ```
 
 virtualenv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+source venv/bin/activate # On Windows use `venv\Scripts\activate`
 
 Install dependencies:
 
@@ -75,3 +76,12 @@ Contributions are welcome! Please follow these steps to contribute:
 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+Demo:
+
+<ul>
+  <li>Project Screenshot 1
+    <img src="static/images/Screenshot.png" alt="Project Screenshot 1"><br><br>
+  </li>
+  
+</ul>
