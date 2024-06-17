@@ -3,9 +3,15 @@
 {% block title %}Product Detail{% endblock %}
 
 {% block content %}
-<h2>Product Detail</h2>
-<p>Name: {{ product.name }}</p>
-<p>Description: {{ product.description }}</p>
-<p>Quantity: {{ product.quantity }}</p>
-<p>Price: {{ product.price }}</p>
+<div class="container mx-auto px-4">
+    <h2 class="text-2xl font-bold my-4">Product Detail</h2>
+    <div class="bg-white shadow-md rounded-lg p-6">
+        <p class="text-lg font-bold">{{ product.name }}</p>
+        <p class="text-gray-600">{{ product.description }}</p>
+        <div class="mt-4">
+            <p><span class="font-semibold">Quantity:</span> {{ product.quantity }}</p>
+            <p><span class="font-semibold">Price:</span> ${{ product.price }}</p>
+        </div>
+    </div>
+</div>
 {% endblock %}
