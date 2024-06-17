@@ -3,11 +3,18 @@
 {% block title %}Medical Records{% endblock %}
 
 {% block content %}
-<h2>Medical Records</h2>
-<ul>
-    {% for record in records %}
-    <li><a href="{% url 'medical_record_detail' record.pk %}">Record for {{ record.patient.user.username }} on {{
-            record.date }}</a></li>
-    {% endfor %}
-</ul>
+<div class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold mb-6">Medical Records</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for record in records %}
+        <div class="bg-white shadow-lg rounded-lg p-6">
+            <h3 class="text-lg font-semibold mb-2">Medical Record for {{ record.patient.user.username }}</h3>
+            <p class="text-gray-700"><span class="font-semibold">Date:</span> {{ record.date }}</p>
+            <p class="text-gray-700"><span class="font-semibold">Description:</span> {{ record.description }}</p>
+            <a href="{% url 'medical_record_detail' record.pk %}"
+                class="text-blue-500 hover:underline mt-4 inline-block">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

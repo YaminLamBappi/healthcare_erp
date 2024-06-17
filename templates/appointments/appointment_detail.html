@@ -3,9 +3,14 @@
 {% block title %}Appointment Detail{% endblock %}
 
 {% block content %}
-<h2>Appointment Detail</h2>
-<p>Doctor: {{ appointment.doctor.username }}</p>
-<p>Patient: {{ appointment.patient.user.username }}</p>
-<p>Date: {{ appointment.date }}</p>
-<p>Description: {{ appointment.description }}</p>
+<div class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold mb-6">Appointment Detail</h2>
+    <div class="bg-white shadow-lg rounded-lg p-6">
+        <p class="mb-4"><span class="font-semibold text-gray-800">Doctor:</span> {{ appointment.doctor.username }}</p>
+        <p class="mb-4"><span class="font-semibold text-gray-800">Patient:</span>
+            {{ appointment.patient.user.username }}</p>
+        <p class="mb-4"><span class="font-semibold text-gray-800">Date:</span> {{ appointment.date }}</p>
+        <p class="mb-4"><span class="font-semibold text-gray-800">Description:</span> {{ appointment.description }}</p>
+    </div>
+</div>
 {% endblock %}

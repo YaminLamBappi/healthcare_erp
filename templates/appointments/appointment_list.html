@@ -3,11 +3,21 @@
 {% block title %}Appointments{% endblock %}
 
 {% block content %}
-<h2>Appointments</h2>
-<ul>
-    {% for appointment in appointments %}
-    <li><a href="{% url 'appointment_detail' appointment.pk %}">Appointment with Dr. {{ appointment.doctor.username }}
-            for {{ appointment.patient.user.username }} on {{ appointment.date }}</a></li>
-    {% endfor %}
-</ul>
+<div class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold mb-6">Appointments</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {% for appointment in appointments %}
+        <div class="bg-white shadow-lg rounded-lg p-6">
+            <h3 class="text-lg font-semibold mb-2">Appointment Details</h3>
+            <p class="text-gray-700"><span class="font-semibold">Doctor:</span> Dr. {{ appointment.doctor.username }}
+            </p>
+            <p class="text-gray-700"><span class="font-semibold">Patient:</span> {{ appointment.patient.user.username }}
+            </p>
+            <p class="text-gray-700"><span class="font-semibold">Date:</span> {{ appointment.date }}</p>
+            <a href="{% url 'appointment_detail' appointment.pk %}"
+                class="text-blue-500 hover:underline mt-4 inline-block">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

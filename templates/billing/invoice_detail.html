@@ -3,9 +3,14 @@
 {% block title %}Invoice Detail{% endblock %}
 
 {% block content %}
-<h2>Invoice Detail</h2>
-<p>Patient: {{ invoice.patient.user.username }}</p>
-<p>Date: {{ invoice.date }}</p>
-<p>Amount: {{ invoice.amount }}</p>
-<p>Description: {{ invoice.description }}</p>
+<div class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold mb-6">Invoice Detail</h2>
+    <div class="bg-white shadow-lg rounded-lg p-6">
+        <p class="mb-4"><span class="font-semibold text-gray-800">Patient:</span> {{ invoice.patient.user.username }}
+        </p>
+        <p class="mb-4"><span class="font-semibold text-gray-800">Date:</span> {{ invoice.date }}</p>
+        <p class="mb-4"><span class="font-semibold text-gray-800">Amount:</span> ${{ invoice.amount }}</p>
+        <p class="mb-4"><span class="font-semibold text-gray-800">Description:</span> {{ invoice.description }}</p>
+    </div>
+</div>
 {% endblock %}

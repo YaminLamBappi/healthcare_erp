@@ -12,9 +12,20 @@
 </head>
 
 <body>
-    <header class="bg-blue-500 text-white p-4">
-        <h1>Welcome to the Healthcare ERP System</h1>
+    <header class="bg-blue-500 text-white p-4 flex justify-between items-center">
+        <a href="{% url 'home' %}">
+            <h1>Welcome to the Healthcare ERP System</h1>
+        </a>
+        <div class="flex items-center">
+            {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="text-white hover:underline ml-4">Logout</a>
+            {% else %}
+            <a href="{% url 'login' %}" class="text-white hover:underline ml-4">Login /</a>
+            <a href="{% url 'register' %}" class="text-white hover:underline ml-4"> / Register</a>
+            {% endif %}
+        </div>
     </header>
+    {% if user.is_authenticated %}
     <nav class="bg-gray-100 p-4">
         <ul class="flex space-x-4">
             <li><a href="{% url 'patient_list' %}" class="text-blue-500 hover:underline">Patients</a></li>
@@ -25,6 +36,8 @@
             <li><a href="{% url 'employee_list' %}" class="text-blue-500 hover:underline">HR Management</a></li>
         </ul>
     </nav>
+    {% endif %}
+
     <main class="p-4">
         {% block content %}{% endblock %}
     </main>

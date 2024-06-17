@@ -1,12 +1,54 @@
-{% extends "base.html" %}
+{% load static %}
 
-{% block title %}Register{% endblock %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Register{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+
+</head>
 
 {% block content %}
-<h2>Register</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Register</button>
-</form>
+<header class="bg-blue-500 text-white p-4 flex justify-between items-center">
+    <a href="{% url 'home' %}">
+        <h1>Welcome to the Healthcare ERP System</h1>
+    </a>
+</header>
+<div class="container">
+    <div class="register-container">
+        <h2 class="text-center">Register</h2>
+
+        {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+            <strong>Oops!</strong> There was an error while processing your registration.
+            <ul>
+                {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="form-group">
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field }}
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary">Register</button>
+            <a href="{% url 'login' %}">Have an account? Sign in Now</a>
+        </form>
+
+
+    </div>
+</div>
 {% endblock %}
+
+</html>

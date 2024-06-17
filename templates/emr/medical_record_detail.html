@@ -3,9 +3,13 @@
 {% block title %}Medical Record Detail{% endblock %}
 
 {% block content %}
-<h2>Medical Record Detail</h2>
-<p>Patient: {{ record.patient.user.username }}</p>
-<p>Date: {{ record.date }}</p>
-<p>Description: {{ record.description }}</p>
-<p>Prescription: {{ record.prescription }}</p>
+<div class="container mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold mb-6">Medical Record Detail</h2>
+    <div class="bg-white shadow-lg rounded-lg p-6">
+        <p class="mb-4"><span class="font-semibold text-gray-800">Patient:</span> {{ record.patient.user.username }}</p>
+        <p class="mb-4"><span class="font-semibold text-gray-800">Date:</span> {{ record.date }}</p>
+        <p class="mb-4"><span class="font-semibold text-gray-800">Description:</span> {{ record.description }}</p>
+        <p class="mb-4"><span class="font-semibold text-gray-800">Prescription:</span> {{ record.prescription }}</p>
+    </div>
+</div>
 {% endblock %}
